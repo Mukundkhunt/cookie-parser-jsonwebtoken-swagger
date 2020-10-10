@@ -2,10 +2,7 @@ const { JsonWebTokenError } = require('jsonwebtoken')
 
 const jwt = require('jsonwebtoken'),
     express = require('express'),
-    route = express.Router(),
-    morgan = require('morgan')
-var token = jwt.sign({ foo: 'bar' }, 'shhhhh')
-route.use(morgan())
+    route = express.Router()
 route.get('/api', (req, res) => {
     res.json({
         message: "Json web token is running"

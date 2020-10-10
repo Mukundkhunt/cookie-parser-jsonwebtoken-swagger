@@ -1,18 +1,19 @@
-const express = require('express'),
-    cookierParser = require('cookie-parser'),
-    morgan = require('morgan'),
-    Routes = require('./jwt.token'),
-    app = express()
-    // swagger = require('./swagger.ui')
+const express = require('express')
+const cookierParser = require('cookie-parser')
+const Routes = require('./jwt.token')
+const app = express()
+
+//const morgan = require('morgan')
+//const swagger = require('./swagger.ui')
 
 var user = {
-    name: "Janvi"
+    name: "Mukund"
 }
 
 app.use(cookierParser())
-app.use(morgan('dev'))
+    // app.use(morgan('dev'))
 app.use(Routes)
-    // app.use(swagger)
+
 app.get('/', (req, res) => {
     console.log("Cookies", req.cookies)
     console.log("Singed Cookies", req.signedCookies)
@@ -28,4 +29,5 @@ app.get('/setcookie', function(req, res) {
 app.use('/getCookie', (req, res) => {
     res.send(req.cookies.name);
 })
-app.listen(port = process.env.PORT || 5000, () => console.log(`Server running on port : ${port}`))
+
+module.exports = app
