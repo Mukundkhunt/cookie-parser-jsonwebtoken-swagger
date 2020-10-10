@@ -45,9 +45,9 @@ route.post('/api/login', (req, res) => {
 function verifyToken(req, res, next) {
     const bearerHeader = req.headers['authorization']
     if (typeof bearerHeader !== "undefined") {
-        const bearer = bearerHeader.split(' '),
-            bearerToken = bearer[1]
-        req.token = bearerToken
+        // const bearer = bearerHeader.split(' '),
+        //     bearerToken = bearer[1]
+        req.token = bearerHeader
         next()
     } else {
         res.sendStatus(403)

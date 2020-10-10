@@ -3,6 +3,8 @@ const express = require('express'),
     morgan = require('morgan'),
     Routes = require('./jwt.token'),
     app = express()
+    // swagger = require('./swagger.ui')
+
 var user = {
     name: "Janvi"
 }
@@ -10,6 +12,7 @@ var user = {
 app.use(cookierParser())
 app.use(morgan('dev'))
 app.use(Routes)
+    // app.use(swagger)
 app.get('/', (req, res) => {
     console.log("Cookies", req.cookies)
     console.log("Singed Cookies", req.signedCookies)
