@@ -6,10 +6,10 @@ const express = require('express'),
 var user = {
     name: "Janvi"
 }
-app.use(Routes)
+
 app.use(cookierParser())
 app.use(morgan('dev'))
-
+app.use(Routes)
 app.get('/', (req, res) => {
     console.log("Cookies", req.cookies)
     console.log("Singed Cookies", req.signedCookies)
