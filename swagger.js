@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const http = require('http')
 
-app.use('/api/swag', swaggerUI.serve, swaggerUI.setup(require('./swagger.json')))
+app.use('/api/swag', swaggerUI.serve, swaggerUI.setup(require('./swagger/swagger.json')))
 
 
 console.clear()

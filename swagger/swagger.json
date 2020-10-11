@@ -32,7 +32,16 @@
                 "tags": [
                     "food"
                 ],
-                "summary": "Enter food dishes"
+                "summary": "Enter food dishes",
+                "parameters": [{
+                    "in": "body",
+                    "name": "foodId",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/food"
+                    }
+
+                }]
             }
         }
     }
