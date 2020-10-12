@@ -17,31 +17,69 @@
     "host": "petstore.swagger.io",
     "basPath": "v2",
     "tags": [{
-            "name": "food",
+            "name": "User",
             "description": "Everything about your Food"
         },
         {
-            "name": "store",
+            "name": "Project",
             "description": "What you want to eat"
         }
     ],
     "schemes": ["http"],
     "paths": {
-        "/food": {
-            "post": {
-                "tags": [
-                    "food"
-                ],
-                "summary": "Enter food dishes",
+        "/user": {
+            "get": {
+                "tags": ["User"],
+                "summary": "Get all the user",
                 "parameters": [{
                     "in": "body",
-                    "name": "foodId",
-                    "required": true,
+                    "name": "body",
+                    "description": "Email is required",
                     "schema": {
-                        "$ref": "#/definitions/food"
+                        "required": ["email"],
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            }
+                        },
+                        "example": {
+                            "email": "khuntmukund123@gmail.com"
+                        }
                     }
+                }],
+                "response": {}
+            }
+        },
+        "/user/create": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Create User Account",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Unique Email address and Password",
+                    "schema": {
+                        "required": ["email", "password"],
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "password": {
+                                "type": "string"
+                            }
+                        },
+                        "example": {
+                            "name": "Mukund Khunt",
+                            "email": "Mukund.semicolon@gmail.com",
+                            "password": "my-secret-password"
 
-                }]
+                        }
+                    }
+                }],
+                "responses": {}
             }
         }
     }
