@@ -2,6 +2,7 @@ const express = require('express')
 const cookierParser = require('cookie-parser')
 const Routes = require('./jwt.token')
 const app = express()
+    // const swagger = require('./swagger')
 
 //const morgan = require('morgan')
 //const swagger = require('./swagger.ui')
@@ -13,6 +14,7 @@ var user = {
 app.use(cookierParser())
     // app.use(morgan('dev'))
 app.use(Routes)
+    // app.use(swagger)
 
 app.get('/', (req, res) => {
     console.log("Cookies", req.cookies)
